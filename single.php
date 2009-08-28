@@ -9,7 +9,7 @@
 
 				<?php if ($hemingwayEx_options['reddit_button'] == 1) { ?>
 				    <div style="float:left; margin: 10px;">
-					<script type='text/javascript'>reddit_url='<?php the_permalink(); ?>'; reddit_title='<?php wp_title(''); ?>'; reddit_bgcolor = "0c0c0c"; reddit_bordercolor='55F';</script>
+					<script type='text/javascript'>reddit_url='<?php the_permalink(); ?>'; reddit_title='<?php wp_title(''); ?>'; reddit_bgcolor = "0c0c0c";</script>
 					<script type="text/javascript" src="http://www.reddit.com/button.js?t=3"></script>
 				    </div>
 				<?php } ?>
