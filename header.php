@@ -58,9 +58,9 @@
 	
 	<div id="navigation">
 		<div class="inside">
-			<ul class="left">
+			<ul class="left" id="suckerfish">
 				<li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
-				<?php wp_list_pages('title_li=&depth=1'); ?>
+				<?php wp_list_pages('title_li=&depth=3'); ?>
 			</ul>
 			<?php if ($hemingwayEx_options['slidebar_enabled'] == 1){ ?>
 				<div class="right" id="silderButton">

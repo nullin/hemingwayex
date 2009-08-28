@@ -6,14 +6,32 @@
 			<div class="primary">
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
     <?php the_title(); ?></a></h1>
+
+				<?php if ($hemingwayEx_options['reddit_button'] == 1) { ?>
+				    <div style="float:left; margin: 10px;">
+					<script type='text/javascript'>reddit_url='<?php the_permalink(); ?>'; reddit_title='<?php wp_title(''); ?>'; reddit_bgcolor = "0c0c0c"; reddit_bordercolor='55F';</script>
+					<script type="text/javascript" src="http://www.reddit.com/button.js?t=3"></script>
+				    </div>
+				<?php } ?>
+					
 				<?php the_content('<p class="serif">'. __('Read the rest of this entry &raquo;','hemingwayex') .'</p>'); ?>
+
+                                <?php if (function_exists('emo_vote_display')): ?> 
+                                   <p><div style="text-align:center"><strong><small>No time for a comment? Simply click on one of the colours below to let me know how you found this post.</small></strong></div></p>
+                                   <?php emo_vote_display('', '', ''); ?>
+				<?php endif; ?>
+
+				<?php if (function_exists('similar_posts')): ?>
+                                   <?php similar_posts('limit=3&prefix=<div class="similar">Other similar posts you might like: &output_template={link}&divider= | &suffix=</div>') ?>
+				<?php endif; ?>
 				
 				<hr class="hide" />
 			</div>
 			<div class="secondary">
 				<div class="abt-this-page"><?php _e('About this entry','hemingwayex') ?></div>
 				<div class="featured">
-					<p><?php _e('You&rsquo;re currently reading &ldquo;','hemingwayex'); the_title(); _e('&rdquo;, an entry on ','hemingwayex'); bloginfo('name'); ?></p>
+					<?php the_excerpt(); ?>
+<!-- Old "About" should add it with an if after checking if the excerpt exists					<p><?php _e('You&rsquo;re currently reading &ldquo;','hemingwayex'); the_title(); _e('&rdquo;, an entry on ','hemingwayex'); bloginfo('name'); ?></p> -->
 					<dl>
 						<dt><?php _e('Published','hemingwayex') ?>:</dt>
 						<dd><?php the_time( $hemingwayEx->date_format() . '.y' ) ?> / <?php the_time('ga') ?></dd>
@@ -31,6 +49,19 @@
 							<?php wp_related_posts(); ?>
 						</dl>
 					 <?php } ?>
+                                        <?php if (function_exists('the_postrank')): ?>
+					<dl>
+						<dt>Postrank:</dt>
+						<dd><a href="http://www.postrank.com/feed/300313ec66539a0b46a85526e8349e43"><span style="color:#<?php the_postrank_color(); ?>;"><?php the_postrank(); ?></span></a></dd>
+					</dl>
+                                        <?php endif; ?>
+
+                                        <?php if (function_exists('mtw_wordcount')): ?>
+					<dl>
+						<dt>Word count:</dt>
+						<dd><?php echo mtw_wordcount(); ?></dd>
+					</dl>
+                                        <?php endif; ?>
 					<?php if ($hemingwayEx_options['post_navigation'] == 1) { ?>
 						<dl>
 							<dt><?php _e('Post Navigation','hemingwayex') ?>:<br /></dt>

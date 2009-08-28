@@ -36,9 +36,10 @@ class HemingwayEx
 				$max_length = 75; // Maximum words.
 			}
 			
-			// If they've manually put in an excerpt, let it go!
-			if ($post->post_excerpt) return $post->post_excerpt;
-			
+			// If they've manually put in an excerpt, and allowed it to be used let it go!
+			if ($post->post_excerpt	&& $hemingwayEx_options['use_WP_excerpt']!=0) { 
+				return $post->post_excerpt;
+			}
 			// Check to see if it's a password protected post
 			if ($post->post_password) {
 					if ($_COOKIE['wp-postpass_'.COOKIEHASH] != $post->post_password) {
@@ -72,7 +73,7 @@ $hemingwayEx->date = "2008-09-03";
 // Default Options. Used only when HemingwayEx is not installed or a newer version is available
 $default_options = Array(
 	'international_dates' => 0,
-	'excerpt_length' => 75,
+	'excerpt_length' => 120,
 	'asc_comments' => 1,
 	'page_comments' => 1,
 	'slidebar_enabled' => 1,
@@ -81,6 +82,8 @@ $default_options = Array(
 	'excerpt_enabled' => 1,
 	'font_resizer' => 1,
 	'paging_enabled' => 0,
+	'use_WP_excerpt' => 1,
+	'reddit_button'=> 0,
 );
 if (!get_option('hem_version') || get_option('hem_version') < $hemingwayEx->version){	
 	// HemingwayEx isn't installed, so we'll need to add options
@@ -210,6 +213,8 @@ function menu() {
 		$hemingwayEx_options['post_navigation'] = $_POST['post_navigation'];
 		$hemingwayEx_options['font_resizer'] = $_POST['font_resizer'];
 		$hemingwayEx_options['paging_enabled'] = $_POST['paging_enabled'];
+		$hemingwayEx_options['use_WP_excerpt'] = $_POST['use_WP_excerpt'];
+		$hemingwayEx_options['reddit_button'] = $_POST['reddit_button'];
 		update_option('hem_options', $hemingwayEx_options);
 		
 		wp_cache_flush();
@@ -263,14 +268,17 @@ function menu() {
 <input type="hidden" name="misc_options" value="1" />
 <h4><?php _e('Sidebars','hemingwayex') ?></h4>
 <p>
-	<label><input type="checkbox" value="1" name="slidebar_enabled" <?php if ($hemingwayEx_options['slidebar_enabled'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Enable Slidebar','hemingwayex') ?>&trade;</label>
+	<label><input type="checkbox" value="1" name="slidebar_enabled" <?php if ($hemingwayEx_options['slidebar_enabled'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Enable Slidebar','hemingwayex') ?></label>
 </p>
 <p>
-	<label><input type="checkbox" value="1" name="bottombar_enabled" <?php if ($hemingwayEx_options['bottombar_enabled'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Enable Bottombar','hemingwayex') ?>&trade;</label>
+	<label><input type="checkbox" value="1" name="bottombar_enabled" <?php if ($hemingwayEx_options['bottombar_enabled'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Enable Bottombar','hemingwayex') ?></label>
 </p>
 <h4><?php _e('Excerpt','hemingwayex') ?></h4>
 <p>
 	<label><input type="checkbox" value="1" name="excerpt_enabled" <?php if ($hemingwayEx_options['excerpt_enabled'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Enable Excerpt on homepage','hemingwayex') ?></label>
+</p>
+<p>
+	<label><input type="checkbox" value="1" name="use_WP_excerpt" <?php if ($hemingwayEx_options['use_WP_excerpt'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Do you want to use the WP exceprt if it exists?','hemingwayex') ?></label>
 </p>
 <p><?php _e("Enter the length of excerpt in number of words. If length is not specified or is set to 0, it will default to 75 words. Also, this will only be used if an excerpt isn't already defined for the post.",'hemingwayex') ?></p>
 <p><input type="text" name="excerpt_length" value="<?php echo $hemingwayEx_options['excerpt_length']; ?>" size="3" /></p>
@@ -293,6 +301,9 @@ function menu() {
 </p>
 <p>
 	<label><input type="checkbox" value="1" name="font_resizer" <?php if ($hemingwayEx_options['font_resizer'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Display font resize script in header','hemingwayex') ?></label>
+</p>
+<p>
+	<label><input type="checkbox" value="1" name="reddit_button" <?php if ($hemingwayEx_options['reddit_button'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Do you want a <a href="http://www.reddit.com/">reddit</a> button on the top of your content?','hemingwayex') ?></label>
 </p>
 <p>
 	<br/><input type="submit" value="Save my options" />
