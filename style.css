@@ -18,12 +18,14 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, label, ul, ol, dl, fieldset, address
 li, dd { margin-left:5%; }
 fieldset { padding: .5em; }
 select option{ padding:0 5px; }
+
 .hide, .print-logo, .close-button{ display:none; }
 .left{ float:left; }
 .right{ float:right; }
 .clear{ clear:both; height:1px; font-size:1px; line-height:1px; }
 a img{ border:none; }
-div { position:relative; }
+/* Commenting the below out as it screws with Suckerfish dropdowns - why is it there? */
+/* div { position:relative; } */
 /*-----------------------------------------------------------------------------------------------
   Layout / Base Page Styling
 -----------------------------------------------------------------------------------------------*/
@@ -145,7 +147,8 @@ table caption{
 	background:#000 url(images/navigation.png) top repeat-x;
 	display:block;
 	height:25px;
-	overflow:hidden;
+/* Commenting the below out as it screws with Suckerfish dropdowns - why is it there? */
+/*	overflow:hidden; */
 }
 #navigation ul{
 	list-style:none;
@@ -371,6 +374,77 @@ a.silderButtonNav:hover{
 #paging a:hover {
 	text-decoration:none;
 }
+
+/*-----------------------------------------------------------------------------------------------
+	Styles for various plugins
+-----------------------------------------------------------------------------------------------*/
+/* Similar posts plugin. Styling the bottom of the single page suggestions */
+.similar{
+	margin:1em 0;
+	text-align:right;
+	border-top:1px solid #555;
+	border-bottom:1px solid #555;
+	padding:0.5em 0;
+	font-size:0.9em;
+	color:#666;
+}
+
+/* Emo-Vote Plugin styles for the lists (sidebar etc) */
+li.emo_widget_title {
+    color: #FF9900;
+    border-top: none !important;
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+	Caption and WP 2.6 Image Styles
+-----------------------------------------------------------------------------------------------*/
+.aligncenter,
+div.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.alignleft {
+   float: left;
+}
+
+.alignright {
+   float: right;
+}
+
+.wp-caption {
+   border: 1px solid #229;
+   text-align: center;
+   background-color: #232323;
+   padding-top: 4px;
+   margin: 10px;
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+
+.wp-caption img {
+
+   margin: 0;
+   padding: 0;
+   border: 0 none;
+}
+
+a.wp-caption:hover {
+}
+
+.wp-caption p.wp-caption-text {
+   font-size: 11px;
+   line-height: 17px;
+   padding: 0 4px 5px;
+   margin: 0;
+}
+
+
 /*-----------------------------------------------------------------------------------------------
 	Secondary Items
 -----------------------------------------------------------------------------------------------*/
@@ -780,3 +854,163 @@ ul.recent-comments li a{
 	margin:0 7px 0 0;
 	top:1px;
 }
+
+/*-----------------------------------------------------------------------------------------------
+  Organise Series Styles
+-----------------------------------------------------------------------------------------------*/
+
+.seriesbox{
+	margin:1em 0;
+	border-top:1px solid #555;
+	border-bottom:1px solid #555;
+	padding:0.5em 0;
+	font-size:0.9em;
+	color:#666;
+}
+
+.imgset {
+	float: left;
+	/*overflow: visible;*/
+	border: none;
+	margin-right: 6px;
+}
+
+.serieslist-content {
+	font-size: 1.2em;
+	color: #AAA;
+	text-align: left;
+}
+
+.serieslist-box {
+	background: #0c0c0c;
+	width: 90%;
+	/*height: 100px;*/
+	padding: 6px;
+	margin: 10px auto 0 auto;
+	border: 1px solid #1E3A96;
+	border-bottom: 2px solid #1E3A96;
+}
+
+html>body .serieslist-box {
+	height: auto;
+	/*min-height: 100px;*/
+} 	
+
+h2.series-title {
+	font-size: 1.2em;
+	color: #1E3A96;
+	text-align: center;
+}
+
+ul.serieslist-ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	margin-left:2px;
+	padding-left:1em;
+}
+
+li.serieslist-li {
+	margin: 0;
+	padding: 0;
+}
+
+.seriesbox {
+	background: #2c2c2c;
+	color: #AAA;
+	text-align: left;
+	font: .8em Arial, Tahoma, Verdana, Sans-Serif;
+	margin: 0 10px 0px 10px;
+	padding: 6px 6px 12px 6px;
+	border: 1px dotted #1E3A96;
+	border-bottom: 2px solid #1E3A96;
+	min-width: 125px;
+}
+
+.seriesbox img {
+	margin: 0px 12.5px 0 12.5px;
+}
+
+h3.series-title-post-page {
+	font-size: 1.1em;
+	color: #1E3A96;
+	text-align: center;
+}
+
+p.series-description {
+	font-style: italic;
+}
+
+.seriesmeta {
+	background-color: #2f4150;
+	font-size: .8em;
+}
+
+.series-nav-left {
+	float: left;
+}
+
+.series-nav-right {
+	float: right;
+}
+
+
+
+/*-----------------------------------------------------------------------------------------------
+  Drop Down Menu
+-----------------------------------------------------------------------------------------------*/
+
+        #suckerfish, #suckerfish ul {
+	padding: 0;
+	margin: 0;
+	list-style: none; 
+	line-height: 1;
+        }
+
+	#suckerfish a {
+            display: block;
+            color: #fff;
+	}
+
+	#suckerfish li {
+            float: left;
+
+            position: relative;
+	}
+
+	#suckerfish li ul {
+
+            position: absolute;
+            left: -999em;
+            height: auto;
+	}
+
+	#suckerfish li ul li {
+            background: #339;
+            width: 20em;
+	filter:alpha(opacity=80);
+	-moz-opacity:0.5;
+	opacity:.80;
+	text-decoration:none;
+
+	}
+
+	#suckerfish li ul li a{
+            color: #DDD;
+	}
+ 
+        #suckerfish li ul ul {
+	    margin: -3em 0 0 20em;
+        }
+
+	#suckerfish li ul li ul li{
+            width: auto;
+	}
+
+	#suckerfish li:hover ul ul, #suckerfish li:hover ul ul ul, #suckerfish li.sfhover ul ul, #suckerfish li.sfhover ul ul ul {
+       	left: -999em;
+	}
+ 
+ 	#suckerfish li:hover ul, #suckerfish li li:hover ul, #suckerfish li li li:hover ul, #suckerfish li.sfhover ul, #suckerfish li li.sfhover ul, #suckerfish li li li.sfhover ul {
+            left: auto;
+	}
