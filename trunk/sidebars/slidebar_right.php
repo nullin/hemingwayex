@@ -1,0 +1,1 @@
+<?php if ( !function_exists('dynamic_sidebar')       || !dynamic_sidebar('Slidebar Right') ) : ?>	   <li>You should not be seeing this text. To fix it, please make sure that:</li>	   <li>			<ol>				<li>Your installation of Wordpress supports widgets</li>				<li>You have added atleast one Widget to this sidebar</li>			</ol>	   </li><?php endif; ?>
