@@ -58,9 +58,23 @@
 	
 	<div id="navigation">
 		<div class="inside">
+
+		   <?php if ($hemingwayEx_options['drop-down'] == 1){ // If the drop-down menu option is checked ?>
 			<ul class="left" id="suckerfish">
 				<li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
 				<?php wp_list_pages('title_li=&depth=3'); ?>
+
+			<?php if ($hemingwayEx_options['nav_categories'] == 1){  // If the categories drop-down is enabled ?>
+				 <li><a href="<?php bloginfo('siteurl'); ?>/archives">Categories</a>
+                                 <ul>
+				 <?php wp_list_cats(); ?></ul></li> 
+			<?php } ?>
+			
+		   <?php } else {  // If the drop-down menu option is not checked ?>
+			<ul class="left">
+				<li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
+				<?php wp_list_pages('title_li=&depth=1'); ?>	
+		   <?php } ?>				
 			</ul>
 			<?php if ($hemingwayEx_options['slidebar_enabled'] == 1){ ?>
 				<div class="right" id="silderButton">
