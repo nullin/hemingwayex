@@ -53,3 +53,7 @@ blockquote{
 li.emo_widget_title {
     color: #2288FF;
 }
+
+#suckerfish li ul li {
+    background: #339;
+}

@@ -161,3 +161,7 @@ ul.dates a:hover, ul.dates a:hover .date, ul.counts a:hover, ul.counts a:hover .
 	background:#666;
 	color:#fff;
 }
+
+#suckerfish li ul li {
+    background: #333;
+}
