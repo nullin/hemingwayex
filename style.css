@@ -859,13 +859,16 @@ ul.recent-comments li a{
   Organise Series Styles
 -----------------------------------------------------------------------------------------------*/
 
-.seriesbox{
-	margin:1em 0;
-	border-top:1px solid #555;
-	border-bottom:1px solid #555;
-	padding:0.5em 0;
-	font-size:0.9em;
-	color:#666;
+.seriesbox {
+	background: #2c2c2c;
+	color: #AAA;
+	text-align: left;
+	font: .8em Arial, Tahoma, Verdana, Sans-Serif;
+	margin: 0 10px 0px 10px;
+	padding: 6px 6px 12px 6px;
+	border: 1px dotted #96431e;
+	border-bottom: 2px solid #96431e;
+	min-width: 125px;
 }
 
 .imgset {
@@ -913,18 +916,6 @@ ul.serieslist-ul {
 li.serieslist-li {
 	margin: 0;
 	padding: 0;
-}
-
-.seriesbox {
-	background: #2c2c2c;
-	color: #AAA;
-	text-align: left;
-	font: .8em Arial, Tahoma, Verdana, Sans-Serif;
-	margin: 0 10px 0px 10px;
-	padding: 6px 6px 12px 6px;
-	border: 1px dotted #96431e;
-	border-bottom: 2px solid #96431e;
-	min-width: 125px;
 }
 
 .seriesbox img {

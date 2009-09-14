@@ -167,11 +167,16 @@ ul.dates a:hover, ul.dates a:hover .date, ul.counts a:hover, ul.counts a:hover .
 }
 
 .seriesmeta {
-	background-color: #70645e;
+	background-color: #838383;
 }
 
 .seriesbox {
-	background: #000;
+	background: #DDD;
 	border: 1px dotted #000;
 	border-bottom: 2px solid #000;
+	color: #000;
+}
+
+.serieslist-content {
+	color: #555;
 }

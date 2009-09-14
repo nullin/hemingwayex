@@ -215,7 +215,12 @@ ul.sidebar li.widget ul a:hover{ color:#2955CC; }
 }
 
 .seriesbox {
-	background: #2c2c2c;
+	background: #DDD;
 	border: 1px dotted #1E3A96;
 	border-bottom: 2px solid #1E3A96;
+	color: #000;	
+}
+
+.serieslist-content {
+	color: #333;
 }
