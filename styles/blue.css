@@ -209,3 +209,13 @@ ul.sidebar li.widget ul a:hover{ color:#2955CC; }
 #suckerfish li ul li {
     background: #339;
 }
+
+.seriesmeta {
+	background-color: #2f4150;
+}
+
+.seriesbox {
+	background: #2c2c2c;
+	border: 1px dotted #1E3A96;
+	border-bottom: 2px solid #1E3A96;
+}

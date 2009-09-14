@@ -7,12 +7,12 @@
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
     <?php the_title(); ?></a></h1>
 
-				<?php if ($hemingwayEx_options['reddit_button'] == 1) { ?>
+				<?php if ($hemingwayEx_options['reddit_button'] == 1): ?>
 				    <div style="float:left; margin: 10px;">
 					<script type='text/javascript'>reddit_url='<?php the_permalink(); ?>'; reddit_title='<?php wp_title(''); ?>'; reddit_bgcolor = "0c0c0c";</script>
 					<script type="text/javascript" src="http://www.reddit.com/button.js?t=3"></script>
 				    </div>
-				<?php } ?>
+				<?php endif; ?>
 					
 				<?php the_content('<p class="serif">'. __('Read the rest of this entry &raquo;','hemingwayex') .'</p>'); ?>
 
@@ -27,7 +27,7 @@
 				
 				<hr class="hide" />
 			</div>
-			<div class="secondary">
+			<div class="secondary snap_noshots">
 				<div class="abt-this-page"><?php _e('About this entry','hemingwayex') ?></div>
 				<div class="featured">
 					<?php the_excerpt(); ?>
@@ -78,13 +78,17 @@
 	
 	<hr class="hide" />
 	<div id="secondary">
-		<div class="inside">
+		<div class="inside snap_noshots">
 			
 			<?php if ('open' == $post-> comment_status) {
 				// Comments are open ?>
 				<div class="comment-head">
+				   <?php if (function_exists('id_activate_hooks')) { // If Intense Debate Comments are not active remove the comment count?>
+					<span class="details"><a href="#respond">Jump to comment form</a><!-- | <?php comments_rss_link('comments rss'); ?> --> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>">trackback uri</a><?php endif; ?></span>
+		                   <?php } else {  // If Intense Debate Comments are not active go to normal ?>	
 					<div class="num-comments"><?php comments_number('No comments','1 Comment','% Comments'); ?></div>
 					<span class="details"><a href="#comment-form"><?php _e('Jump to comment form','hemingwayex') ?></a> | <?php comments_rss_link('comments rss'); ?> <a href="#what-is-comment-rss" class="help">[?]</a> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>"><?php _e('trackback uri','hemingwayex') ?></a> <a href="#what-is-trackback" class="help">[?]</a><?php endif; ?></span>
+		                   <?php } ?>	
 				</div>
 			<?php } elseif ('open' != $post-> comment_status) {
 				// Neither Comments, nor Pings are open ?>

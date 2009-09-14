@@ -922,8 +922,8 @@ li.serieslist-li {
 	font: .8em Arial, Tahoma, Verdana, Sans-Serif;
 	margin: 0 10px 0px 10px;
 	padding: 6px 6px 12px 6px;
-	border: 1px dotted #1E3A96;
-	border-bottom: 2px solid #1E3A96;
+	border: 1px dotted #96431e;
+	border-bottom: 2px solid #96431e;
 	min-width: 125px;
 }
 
@@ -942,7 +942,7 @@ p.series-description {
 }
 
 .seriesmeta {
-	background-color: #2f4150;
+	background-color: #50412f;
 	font-size: .8em;
 }
 
