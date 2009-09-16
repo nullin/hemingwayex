@@ -30,8 +30,9 @@
 			<div class="secondary snap_noshots">
 				<div class="abt-this-page"><?php _e('About this entry','hemingwayex') ?></div>
 				<div class="featured">
-					<?php the_excerpt(); ?>
-<!-- Old "About" should add it with an if after checking if the excerpt exists					<p><?php _e('You&rsquo;re currently reading &ldquo;','hemingwayex'); the_title(); _e('&rdquo;, an entry on ','hemingwayex'); bloginfo('name'); ?></p> -->
+					<?php if ($post->post_excerpt) the_excerpt(); else { ?>
+                                           <p><?php _e('You&rsquo;re currently reading an entry written by ','hemingwayex'); the_author(); ?></p>
+				        <?php } ?>
 					<dl>
 						<dt><?php _e('Published','hemingwayex') ?>:</dt>
 						<dd><?php the_time( $hemingwayEx->date_format() . '.y' ) ?> / <?php the_time('ga') ?></dd>
