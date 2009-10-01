@@ -99,6 +99,8 @@
 				</div>	
 			<?php } ?>
 			
+                        <?php if (function_exists('backlinks')) backlinks(); ?>			
+			
 			<?php comments_template(); ?>
 			
 			<?php endwhile; else: ?>

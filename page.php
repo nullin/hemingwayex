@@ -25,7 +25,9 @@
 					<div class="num-comments"><?php comments_number('No comments','1 Comment','% Comments'); ?></div>
 					<span class="details"><?php if($open_comments) { ?><a href="#comment-form"><?php _e('Jump to comment form','hemingwayex') ?></a><?php } else { ?>Comments are closed<?php }?> | <?php comments_rss_link('comments rss'); ?> <a href="#what-is-comment-rss" class="help">[?]</a> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>"><?php _e('trackback uri','hemingwayex') ?></a> <a href="#what-is-trackback" class="help">[?]</a><?php endif; ?></span>
 				</div>
-				
+			
+                        <?php if (function_exists('backlinks')) backlinks(); ?>			
+					
 				<?php comments_template(); ?>
 			<?php } }?>
 			
