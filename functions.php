@@ -357,10 +357,17 @@ You have the latest version installed.
 }
 //register sidebars if, use of widgets is enabled and widgets are supported.
 if (function_exists('register_sidebar')) {
+	register_sidebar(array(
+		'name'=>'Singepost Sidebar',
+		'before_widget' => '<dl class="widget">',
+		'after_widget' => '</dl>',
+		'before_title' => '<h4>',
+		'after_title' => '</h4>',
+	 ));
     if ($hemingwayEx_options['slidebar_enabled'] == 1){
 		 register_sidebar(array(
 			'name'=>'Slidebar Left',
-				'before_widget' => '<li class="widget">',
+			'before_widget' => '<li class="widget">',
 			'after_widget' => '</li>',
 			'before_title' => '<h2>',
 			'after_title' => '</h2>',

@@ -22,7 +22,7 @@
 				<?php endif; ?>
 
 				<?php if (function_exists('similar_posts')): ?>
-                                   <?php similar_posts('limit=3&prefix=<div class="similar">Other similar posts you might like: &output_template={link}&divider= | &suffix=</div>') ?>
+                                   <?php similar_posts('limit=3&skip=0&prefix=<div class="similar">Other similar posts you might like: &output_template={link}&divider= | &suffix=</div>') ?>
 				<?php endif; ?>
 				
 				<hr class="hide" />
@@ -69,6 +69,11 @@
 							<dd><?php previous_post_link(); ?><br /><?php next_post_link(); ?></dd>
 						</dl>
 					<?php } ?>
+					
+					<?php if ( !function_exists('dynamic_sidebar') 
+					|| !dynamic_sidebar('Singepost Sidebar') ) : ?> 
+					<?php endif; ?>
+					
 					<?php edit_post_link(__('Edit this entry.','hemingwayex'), '<dl><dt>' . __('Edit','hemingwayex') .':</dt><dd> ', '</dd></dl>'); ?>
 				</div>
 			</div>
