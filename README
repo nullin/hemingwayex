@@ -1,0 +1,59 @@
+HemingwayEx Wordpress Theme
+=============
+
+HemingwayEx, a simple extension of Hemingway theme for Wordpress blogs. I have tried to keep the original essence of the Hemingway theme and added some new features and fixed some small issues. This theme comes with an options page and is widgetized. 
+
+Release Notes
+-------
+
+### Upcoming
+
+* New: Created v1.7 with the widgetized single post sidebar (DbZero)
+* New: Widgetized single post sidebar and brightened the font color (DbZero)
+* New: Added backlinks code before the comments (DbZero)
+* New: Added different seriesbox colours for each style (DbZero) 
+* Fixed: Made excerpt on the single page only show if there is one (DbZero)
+* Fixed: Removed some elements from being snapped by the snapshots plugin (DbZero)
+* Fixed: Make the comment count before the comments not visible if Intense Debate is active (DbZero)
+
+### v1.6 (9/5/2009)
+
+* New: Made drop-down menu optional. Gave option to gave categories drop-down (DbZero)
+* New: New options in the config menu about excerpts and a Reddit button (DbZero)
+* New: Modifies the single page to provide support for a few plugins if they are available (DbZero)
+* New: Changed the suckerfish menu in the navigation (DbZero)
+* New: Added styles for some particular plugins (DbZero)
+* New: Added support for WP 2.7 Image Alignment (DbZero)
+* New: Added a new css style, Void Infinite which is a Blue on Black one based on the classic HemingwayEx (DbZero)
+* Fixed: Fixed the css for the drop-down to be an appropriate color (DbZero)
+
+### v1.5 (9/3/2008)
+
+* New: A new CSS style with Black, Blue and Gray colors.
+* New: Added support for Paginating the homepage
+* New: Added WP Gravatar API into the comments. You can turn it on/off using WP->Settings->Discussion page
+* New: Updated the theme to start using JavaScript files included in WP.
+* Fixed: Removed support for Hemingway blocks. Now, this theme only works with Widgets.
+* Fixed: Fixed a few bugs reported by Thomas regarding the search page.
+* Fixed: Minor code clean up here and there.
+
+### v1.1 (4/29/2008)
+
+* New: Added option to enable/disable the sidebars
+* New: Added option to enable/disable the font resizer
+* New: Added option to enable/disable the post navigation
+* New: Added option to turn on/off the excerpt on home page
+* New: (Hopefully) fixed the update notification mechanism
+* New: Added support for Related Posts plugin. You just need to download and activate the plugin.
+* New: Started using WP’s in-built support for Tags instead of UTW tags.
+* Fixed: Fixed CSS issues here and there. The look and feel should be a little bit better now
+* Fixed: Removed the in-built Asides support
+* Fixed: Did some SEO optimizations
+
+### v1.0 (7/14/2007)
+
+### v0.95 beta (3/4/2007)
+
+### v0.93 beta (2/21/2007)
+
+### v0.9 beta (2/18/2007)
