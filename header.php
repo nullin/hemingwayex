@@ -24,7 +24,9 @@
 <?php $hem_js_loc = get_option('siteurl') . '/wp-content/themes/' . get_template() . '/admin/js/';
 		$wp_js_loc  = get_option('siteurl') . '/wp-includes/js/scriptaculous/';?>
 
+<!--TODO: remove one of the prototype.js locations-->
 <script type="text/javascript" src="<?php echo $wp_js_loc; ?>prototype.js"></script>
+<script type="text/javascript" src="<?php echo $wp_js_loc; ?>../prototype.js"></script>
 <script type="text/javascript" src="<?php echo $wp_js_loc; ?>effects.js"></script>
 <script type="text/javascript" src="<?php echo $hem_js_loc; ?>slide.js"></script>
 <script type="text/javascript" src="<?php echo $hem_js_loc; ?>textsize.js"></script>
@@ -58,23 +60,9 @@
 	
 	<div id="navigation">
 		<div class="inside">
-
-		   <?php if ($hemingwayEx_options['drop-down'] == 1){ // If the drop-down menu option is checked ?>
-			<ul class="left" id="suckerfish">
-				<li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
-				<?php wp_list_pages('title_li=&depth=3'); ?>
-
-			<?php if ($hemingwayEx_options['nav_categories'] == 1){  // If the categories drop-down is enabled ?>
-				 <li><a href="<?php bloginfo('siteurl'); ?>/archives">Categories</a>
-                                 <ul>
-				 <?php wp_list_cats(); ?></ul></li> 
-			<?php } ?>
-			
-		   <?php } else {  // If the drop-down menu option is not checked ?>
 			<ul class="left">
 				<li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
-				<?php wp_list_pages('title_li=&depth=1'); ?>	
-		   <?php } ?>				
+				<?php wp_list_pages('title_li=&depth=1'); ?>
 			</ul>
 			<?php if ($hemingwayEx_options['slidebar_enabled'] == 1){ ?>
 				<div class="right" id="silderButton">
