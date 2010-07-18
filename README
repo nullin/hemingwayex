@@ -12,6 +12,7 @@ Release Notes
 * New: Widgetized single post sidebar and brightened the font color (DbZero)
 * New: Added backlinks code before the comments (DbZero)
 * New: Added different seriesbox colours for each style (DbZero) 
+* Fixed: Fix "Open Navigation" for Wordpress 3.0
 * Fixed: Made excerpt on the single page only show if there is one (DbZero)
 * Fixed: Removed some elements from being snapped by the snapshots plugin (DbZero)
 * Fixed: Make the comment count before the comments not visible if Intense Debate is active (DbZero)
