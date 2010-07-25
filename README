@@ -10,6 +10,7 @@ Release Notes
 
 * New: Added support for wp-print plugin for Posts and Pages (Dr.Mobeus)
 * Fixed: comment counters show up correctly now (Dr.Mobeus)
+* Fixed: Update code wasn't working as expected. Removed.
 
 ### v1.7 (7/18/2010)
 

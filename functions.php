@@ -69,7 +69,6 @@ class HemingwayEx
 
 $hemingwayEx = new HemingwayEx();
 $hemingwayEx->version = "1.7.1";
-$hemingwayEx->date = "2010-07-18";
 // Default Options. Used only when HemingwayEx is not installed or a newer version is available
 $default_options = Array(
 	'international_dates' => 0,
@@ -94,11 +93,6 @@ if (!get_option('hem_version') || get_option('hem_version') < $hemingwayEx->vers
 	else
 		update_option('hem_version', $hemingwayEx->version);
 
-	if (!get_option('hem_last_updated')) 
-		add_option('hem_last_updated', '0000-00-00', 'Last date HemingwayEx was checked for an update');
-	
-	if (!get_option('hem_known_update')) 
-		add_option('hem_known_update', '0000-00-00', 'Last known date when HemingwayEx update was released');
 	if (!get_option('hem_style'))
 		add_option('hem_style', '', 'Location of custom style sheet');
 		
@@ -113,72 +107,11 @@ if (!get_option('hem_version') || get_option('hem_version') < $hemingwayEx->vers
 add_action ('admin_menu', 'hemingway_menu');
 $hem_loc = '../themes/' . basename(dirname($file));
 $hemingwayEx_options = get_option('hem_options');
-$hemingwayEx_last_updated = get_option('hem_last_updated');
 $hemingwayEx->get_style();
 
 // Ajax Stuff
 function hemingwayEx_message($message) {
 	echo "<div id=\"message\" class=\"updated fade\"><p>$message</p></div>\n";
-}
-
-function hemingwayEx_update_version() {
-	global $hemingwayEx;
-	$known_update = get_option('hem_known_update');
-	$found_update = "";//$known_update;
-	
-	// check for new versions if it's been a week
-	if (strcmp(date("Y-m-d", time() - 7 * 24 * 60 * 60), get_option('hem_last_updated')) > 0) {
-		// collects only publicly-available stats
-		$stats = Array(
-			'php'     => PHP_VERSION,
-			'server'  => $_SERVER['SERVER_SOFTWARE'],
-			'blog'    => 'Wordpress',
-			'version' => get_bloginfo('version'),
-			'url'     => get_bloginfo('wpurl'),
-			'locale'  => WPLANG,
-		);
-		
-		$args = array();
-		foreach($stats as $key => $value) {
-			$args[] = $key . '=' . urlencode($value);
-		}
-		$args = implode('&', $args);
-
-		// load wp rss functions for update checking.
-		if (!function_exists('parse_w3cdtf')) {
-			require_once(ABSPATH . WPINC . '/rss-functions.php');
-		}
-
-		// note the updating and fetch potential updates
-		update_option('hem_last_updated', date("Y-m-d"));
-		$update = fetch_rss("http://nalinmakar.com/tag/hemingwayex/feed?$args");
-		
-		if ($update === False) {
-			hemingwayEx_message(__('HemingwayEx tried to check for updates but failed. This might be the way PHP is set up, or just random network issues. Please <a href="http://nalinmakar.com/HemingwayEx">visit the HemingwayEx website</a> to update manually if needed.', 'hemingwayEx'));
-			return;
-		}
-
-		// loop through feed, pulling out any updates
-		foreach($update->items as $item) {
-			$updates = Array();
-			if (preg_match('|<!-- HemingwayEx:Update date="(\d{4}-\d{2}-\d{2})" version="(.*?)" -->|', $item['content']['encoded'], $updates)) {
-				// if this is the newest update, save it
-				if ($updates[1] > $found_update) {
-					$found_update = $updates[1];
-					$version = $updates[2];
-				}
-			}
-		}
-		
-		// if an newer update was found, save it
-		if (strcmp($found_update, $known_update) > 0)
-			update_option('hem_known_update', $found_update);
-
-		// if the best-known update is newer than this ver, tell user
-		if (strcmp($found_update, $hemingwayEx->date) > 0)
-			hemingwayEx_message(__('An update of HemingwayEx is available</a> as of ', 'hemingwayEx') . $found_update . __('. Download <a href="http://nalinmakar.com/HemingwayEx">HemingwayEx ', 'hemingwayEx') . $version . '</a>.');
-	
-	}
 }
 
 function hemingway_menu() {
@@ -199,8 +132,6 @@ function menu() {
 		delete_option('hem_blocks');
 		delete_option('hem_version');
 		delete_option('hem_options');
-		delete_option('hem_known_update');
-		delete_option('hem_last_updated');
 		$message = __('Settings removed.','hemingwayex');
 	}
 	
@@ -230,12 +161,9 @@ function menu() {
 	endif; ?>
 <div id="dropmessage" class="updated" style="display:none;"></div>
 <?php if (get_option('hem_version')) : ?>
-<?php hemingwayEx_update_version(); ?>
 <?php 
 	// getting the hemingway options again. For some reason they disappear.
 	$hemingwayEx_options = get_option('hem_options');
-	$hemingwayEx_last_updated = get_option('hem_last_updated');
-	$hemingwayEx_known_update = get_option('hem_known_update');
 ?>
 <div class="wrap" style="position:relative;">
 <h2><?php _e('HemingwayEx Options'); ?></h2>
@@ -320,15 +248,6 @@ function menu() {
 	<br/><input type="submit" value="Save my options" />
 </p>
 </form>
-<h3><?php _e('Updates'); ?></h3>
-<p>HemingwayEx checks for new versions when you bring up this page. (At most once per week.)</p>
-<p>This copy of HemingwayEx is version <b><?php echo $hemingwayEx->version; ?></b> released on <b><?php echo $hemingwayEx->date; ?></b>. 
-<?php if(strcmp($hemingwayEx_known_update, $hemingwayEx->date) > 0) { ?>
-There is an update available as of <?php echo $hemingwayEx_known_update ?>. <?php _e('Download','hemingwayEx') ?> <a href="http://nalinmakar.com/HemingwayEx">HemingwayEx</a>.
-<?php } else { ?>
-You have the latest version installed.
-<?php } ?>
-</p><p>Last checked on <b><?php echo $hemingwayEx_last_updated; ?></b>.</p>
 <h3><?php _e('Donations','hemingwayex') ?></h3>
 <p></p>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
