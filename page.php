@@ -2,13 +2,14 @@
 
 	<div id="primary">
 	<div class="inside">
-
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<h1><?php the_title(); ?></h1>
-				<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
+      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		  <h1><?php the_title(); ?></h1>
+		  <?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 	
-				<?php wp_link_pages('before=<p><strong>'. __('Pages:','hemingwayex') .'</strong>&after=</p>&next_or_number=number'); ?>
-	<?php edit_post_link(__('Edit this entry.','hemingwayex'), '<p>', '</p>'); ?>
+		  <?php wp_link_pages('before=<p><strong>'. __('Pages:','hemingwayex') .'</strong>&after=</p>&next_or_number=number'); ?>
+	     <?php if(function_exists('wp_print')): ?>
+          <br/><p><?php echo print_link(); ?></p><br/>
+	     <?php edit_post_link(__('Edit this entry.','hemingwayex'), '<p>', '</p>'); ?>
 	</div>
 	</div>
 	<hr class="hide" />

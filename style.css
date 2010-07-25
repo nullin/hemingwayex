@@ -2,7 +2,7 @@
 Theme Name: HemingwayEx
 Theme URI: http://nalinmakar.com/hemingwayex
 Description: HemingwayEx is a simple weblog theme by <a href="http://nalinmakar.com">Nalin Makar</a> and further modified by <a href="http://dbzer0.com">Db0</a> created by modifing the very popular <a href="http://warpspire.com/hemingway">Hemingway</a>.  If you'd like to learn more about HemingwayEx, <a href="http://nalinmakar.com/hemingwayex">head on over to my site</a>.
-Version: 1.7
+Version: 1.7.1
 Author: Nalin Makar
 Author URI: http://nalinmakar.com
 */
@@ -24,13 +24,11 @@ select option{ padding:0 5px; }
 .right{ float:right; }
 .clear{ clear:both; height:1px; font-size:1px; line-height:1px; }
 a img{ border:none; }
-/* Commenting the below out as it screws with Suckerfish dropdowns - why is it there? */
-/* div { position:relative; } */
+
 /*-----------------------------------------------------------------------------------------------
   Layout / Base Page Styling
 -----------------------------------------------------------------------------------------------*/
 body{
-	/*original background color: 272727*/
 	background:#000; 
 	color:#BFBFBF;
 	font-size:70%;
@@ -147,8 +145,6 @@ table caption{
 	background:#000 url(images/navigation.png) top repeat-x;
 	display:block;
 	height:25px;
-/* Commenting the below out as it screws with Suckerfish dropdowns - why is it there? */
-/*	overflow:hidden; */
 }
 #navigation ul{
 	list-style:none;
@@ -395,7 +391,6 @@ li.emo_widget_title {
     border-top: none !important;
 }
 
-
 /*-----------------------------------------------------------------------------------------------
 	Caption and WP 2.6 Image Styles
 -----------------------------------------------------------------------------------------------*/
@@ -443,7 +438,6 @@ a.wp-caption:hover {
    padding: 0 4px 5px;
    margin: 0;
 }
-
 
 /*-----------------------------------------------------------------------------------------------
 	Secondary Items
@@ -524,6 +518,8 @@ ol#comments li{
 	height:auto !important;
 	height:72px;
 	overflow:hidden;
+	position: relative;
+	z-index:99;
 }
 #comments .mycontent{
 	float:left;
@@ -536,27 +532,31 @@ ol#comments li{
 	height:auto !important;
 	height:72px;
 	overflow:hidden;
+	position: relative;
+	z-index:99;
 }
 #comments .commentbody {
 	padding: 2% 0 0 2%;
 }
 #comments .counter {
 	position: absolute;
-	top:-14px;
-	right:-3px;
+	top:-10px;
+	right:-1px;
 	font: lighter 72px 'Century Gothic', 'Lucida Grande', Arial, Helvetica, Sans-Serif;
 	color: #272727;
 	text-align: right;
 	padding:0;
+	z-index:-99;
 }
 #comments .mycontent .counter {
 	position: absolute;
-	top:-14px;
-	right:-3px;
+	top:-10px;
+	right:-1px;
 	font: normal 72px 'Century Gothic', 'Lucida Grande', Arial, Helvetica, Sans-Serif;
 	color: #666;
 	text-align: right;
 	padding:0;
+	z-index:-99;
 }
 #comments .content p{
 	margin:0 0 1em 0;
@@ -945,10 +945,8 @@ p.series-description {
 	float: right;
 }
 
-
-
 /*-----------------------------------------------------------------------------------------------
-  Drop Down Menu
+  Drop Down Menu (suckerfish)
 -----------------------------------------------------------------------------------------------*/
 
         #suckerfish, #suckerfish ul {

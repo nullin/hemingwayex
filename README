@@ -6,6 +6,11 @@ HemingwayEx, a simple extension of Hemingway theme for Wordpress blogs. I have t
 Release Notes
 -------
 
+### v1.7.1 ()
+
+* New: Added support for wp-print plugin for Posts and Pages (Dr.Mobeus)
+* Fixed: comment counters show up correctly now (Dr.Mobeus)
+
 ### v1.7 (7/18/2010)
 
 * New: Created v1.7 with the widgetized single post sidebar (DbZero)

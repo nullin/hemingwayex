@@ -68,7 +68,7 @@ class HemingwayEx
 	}
 
 $hemingwayEx = new HemingwayEx();
-$hemingwayEx->version = "1.7";
+$hemingwayEx->version = "1.7.1";
 $hemingwayEx->date = "2010-07-18";
 // Default Options. Used only when HemingwayEx is not installed or a newer version is available
 $default_options = Array(

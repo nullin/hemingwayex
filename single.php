@@ -31,8 +31,8 @@
 				<div class="abt-this-page"><?php _e('About this entry','hemingwayex') ?></div>
 				<div class="featured">
 					<?php if ($post->post_excerpt) the_excerpt(); else { ?>
-                                           <p><?php _e('You&rsquo;re currently reading an entry written by ','hemingwayex'); the_author(); ?></p>
-				        <?php } ?>
+                  <p><?php _e('You&rsquo;re currently reading an entry written by ','hemingwayex'); the_author(); ?></p>
+				   <?php } ?>
 					<dl>
 						<dt><?php _e('Published','hemingwayex') ?>:</dt>
 						<dd><?php the_time( $hemingwayEx->date_format() . '.y' ) ?> / <?php the_time('ga') ?></dd>
@@ -50,14 +50,14 @@
 							<?php wp_related_posts(); ?>
 						</dl>
 					 <?php } ?>
-                                        <?php if (function_exists('the_postrank')): ?>
+               <?php if (function_exists('the_postrank')): ?>
 					<dl>
 						<dt>Postrank:</dt>
 						<dd><a href="http://www.postrank.com/feed/300313ec66539a0b46a85526e8349e43"><span style="color:#<?php the_postrank_color(); ?>;"><?php the_postrank(); ?></span></a></dd>
 					</dl>
-                                        <?php endif; ?>
+               <?php endif; ?>
 
-                                        <?php if (function_exists('mtw_wordcount')): ?>
+               <?php if (function_exists('mtw_wordcount')): ?>
 					<dl>
 						<dt>Word count:</dt>
 						<dd><?php echo mtw_wordcount(); ?></dd>
@@ -69,9 +69,13 @@
 							<dd><?php previous_post_link(); ?><br /><?php next_post_link(); ?></dd>
 						</dl>
 					<?php } ?>
+					<?php if (function_exists('wp_print')) { ?>
+                  <dl>
+                     <dd><?php echo print_link(); ?></dd>
+                  </dl>
+               <?php } ?>
 					
-					<?php if ( !function_exists('dynamic_sidebar') 
-					|| !dynamic_sidebar('Singepost Sidebar') ) : ?> 
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Singepost Sidebar') ) : ?> 
 					<?php endif; ?>
 					
 					<?php edit_post_link(__('Edit this entry.','hemingwayex'), '<dl><dt>' . __('Edit','hemingwayex') .':</dt><dd> ', '</dd></dl>'); ?>
@@ -86,15 +90,14 @@
 	<div id="secondary">
 		<div class="inside snap_noshots">
 			
-			<?php if ('open' == $post-> comment_status) {
-				// Comments are open ?>
+			<?php if ('open' == $post-> comment_status) { // Comments are open ?>
 				<div class="comment-head">
 				   <?php if (function_exists('id_activate_hooks')) { // If Intense Debate Comments are not active remove the comment count?>
-					<span class="details"><a href="#respond">Jump to comment form</a><!-- | <?php comments_rss_link('comments rss'); ?> --> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>">trackback uri</a><?php endif; ?></span>
-		                   <?php } else {  // If Intense Debate Comments are not active go to normal ?>	
-					<div class="num-comments"><?php comments_number('No comments','1 Comment','% Comments'); ?></div>
-					<span class="details"><a href="#comment-form"><?php _e('Jump to comment form','hemingwayex') ?></a> | <?php comments_rss_link('comments rss'); ?> <a href="#what-is-comment-rss" class="help">[?]</a> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>"><?php _e('trackback uri','hemingwayex') ?></a> <a href="#what-is-trackback" class="help">[?]</a><?php endif; ?></span>
-		                   <?php } ?>	
+					   <span class="details"><a href="#respond">Jump to comment form</a><!-- | <?php comments_rss_link('comments rss'); ?> --> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>">trackback uri</a><?php endif; ?></span>
+		         <?php } else {  // If Intense Debate Comments are not active go to normal ?>	
+					   <div class="num-comments"><?php comments_number('No comments','1 Comment','% Comments'); ?></div>
+					   <span class="details"><a href="#comment-form"><?php _e('Jump to comment form','hemingwayex') ?></a> | <?php comments_rss_link('comments rss'); ?> <a href="#what-is-comment-rss" class="help">[?]</a> <?php if ('open' == $post->ping_status): ?>| <a href="<?php trackback_url(true); ?>"><?php _e('trackback uri','hemingwayex') ?></a> <a href="#what-is-trackback" class="help">[?]</a><?php endif; ?></span>
+		         <?php } ?>	
 				</div>
 			<?php } elseif ('open' != $post-> comment_status) {
 				// Neither Comments, nor Pings are open ?>
@@ -104,7 +107,7 @@
 				</div>	
 			<?php } ?>
 			
-                        <?php if (function_exists('backlinks')) backlinks(); ?>			
+         <?php if (function_exists('backlinks')) backlinks(); ?>			
 			
 			<?php comments_template(); ?>
 			
