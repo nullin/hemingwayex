@@ -165,7 +165,7 @@ table caption{
 }	
 #navigation ul li a {
 	display:block;
-	padding:5px 10px 5px;
+	padding:4px 10px 3px;
 	letter-spacing:1px;
 	border:0;  
 	text-decoration:none; 
@@ -179,15 +179,68 @@ table caption{
 	background-color:black;
 	color:#fff;
 	text-decoration:none;
-	
 }
-
 #slidebar
 { 
-	
 	zoom:1;
-
 }
+
+/*-----------------------------------------------------------------------------------------------
+  Drop Down Menu (suckerfish)
+-----------------------------------------------------------------------------------------------*/
+
+#suckerfish, #suckerfish ul {
+	padding: 0;
+	margin: 0;
+	list-style: none; 
+	line-height: 1;
+}
+
+#suckerfish a {
+    display: block;
+    color: #fff;
+}
+
+#suckerfish li {
+    float: left;
+    position: relative;
+}
+
+#suckerfish li ul {
+    position: absolute;
+    left: -999em;
+    height: auto;
+}
+
+#suckerfish li ul li {
+    background: #933;
+    width: 20em;
+	filter:alpha(opacity=80);
+	-moz-opacity:0.5;
+	opacity:.80;
+	text-decoration:none;
+}
+
+#suckerfish li ul li a{
+    color: #DDD;
+}
+
+#suckerfish li ul ul {
+    margin: -3em 0 0 20em;
+}
+
+#suckerfish li ul li ul li{
+    width: auto;
+}
+
+#suckerfish li:hover ul ul, #suckerfish li:hover ul ul ul, #suckerfish li.sfhover ul ul, #suckerfish li.sfhover ul ul ul {
+    left: -999em;
+}
+
+#suckerfish li:hover ul, #suckerfish li li:hover ul, #suckerfish li li li:hover ul, #suckerfish li.sfhover ul, #suckerfish li li.sfhover ul, #suckerfish li li li.sfhover ul {
+    left: auto;
+}
+
 /*-----------------------------------------------------------------------------------------------
   Open / Close Navigation button
 -----------------------------------------------------------------------------------------------*/
@@ -944,62 +997,3 @@ p.series-description {
 .series-nav-right {
 	float: right;
 }
-
-/*-----------------------------------------------------------------------------------------------
-  Drop Down Menu (suckerfish)
------------------------------------------------------------------------------------------------*/
-
-        #suckerfish, #suckerfish ul {
-	padding: 0;
-	margin: 0;
-	list-style: none; 
-	line-height: 1;
-        }
-
-	#suckerfish a {
-            display: block;
-            color: #fff;
-	}
-
-	#suckerfish li {
-            float: left;
-
-            position: relative;
-	}
-
-	#suckerfish li ul {
-
-            position: absolute;
-            left: -999em;
-            height: auto;
-	}
-
-	#suckerfish li ul li {
-            background: #933;
-            width: 20em;
-	filter:alpha(opacity=80);
-	-moz-opacity:0.5;
-	opacity:.80;
-	text-decoration:none;
-
-	}
-
-	#suckerfish li ul li a{
-            color: #DDD;
-	}
- 
-        #suckerfish li ul ul {
-	    margin: -3em 0 0 20em;
-        }
-
-	#suckerfish li ul li ul li{
-            width: auto;
-	}
-
-	#suckerfish li:hover ul ul, #suckerfish li:hover ul ul ul, #suckerfish li.sfhover ul ul, #suckerfish li.sfhover ul ul ul {
-       	left: -999em;
-	}
- 
- 	#suckerfish li:hover ul, #suckerfish li li:hover ul, #suckerfish li li li:hover ul, #suckerfish li.sfhover ul, #suckerfish li li.sfhover ul, #suckerfish li li li.sfhover ul {
-            left: auto;
-	}
