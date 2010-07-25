@@ -7,8 +7,9 @@
 		  <?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 	
 		  <?php wp_link_pages('before=<p><strong>'. __('Pages:','hemingwayex') .'</strong>&after=</p>&next_or_number=number'); ?>
-	     <?php if(function_exists('wp_print')): ?>
+	     <?php if(function_exists('wp_print')) { ?>
           <br/><p><?php echo print_link(); ?></p><br/>
+        <?php } ?>
 	     <?php edit_post_link(__('Edit this entry.','hemingwayex'), '<p>', '</p>'); ?>
 	</div>
 	</div>
