@@ -6,7 +6,12 @@ HemingwayEx, a simple extension of Hemingway theme for Wordpress blogs. I have t
 Release Notes
 -------
 
-### v1.7.1 ()
+### Upcoming
+* Change: Moved open/close navigation button below the nav bar and made it's position absolute
+* Removed: Suckerfish plugin support
+* New: Enable use of WP 3.0 menus
+
+### v1.7.1 (7/25/2010)
 
 * New: Added support for wp-print plugin for Posts and Pages (Dr.Mobeus)
 * Fixed: comment counters show up correctly now (Dr.Mobeus)

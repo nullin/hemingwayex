@@ -1,9 +1,9 @@
 /*  
 Theme Name: HemingwayEx
 Theme URI: http://nalinmakar.com/hemingwayex
-Description: HemingwayEx is a simple weblog theme by <a href="http://nalinmakar.com">Nalin Makar</a> and further modified by <a href="http://dbzer0.com">Db0</a> created by modifing the very popular <a href="http://warpspire.com/hemingway">Hemingway</a>.  If you'd like to learn more about HemingwayEx, <a href="http://nalinmakar.com/hemingwayex">head on over to my site</a>.
+Description: HemingwayEx is a simple weblog theme by <a href="http://nalinmakar.com">NULL.in</a> and further modified by <a href="http://dbzer0.com">Db0</a> created by modifing the very popular <a href="http://warpspire.com/hemingway">Hemingway</a>.  If you'd like to learn more about HemingwayEx, <a href="http://nalinmakar.com/hemingwayex">head on over to my site</a>.
 Version: 1.7.1
-Author: Nalin Makar
+Author: NULL.in
 Author URI: http://nalinmakar.com
 */
 
@@ -37,7 +37,7 @@ body{
 /* This class sets the width and position for all rows */
 .inside{
 	width:80%;
-	min-width:65em;
+	min-width:85em;
 	max-width:85em;
 	margin:0 auto;
 }
@@ -145,6 +145,9 @@ table caption{
 	background:#000 url(images/navigation.png) top repeat-x;
 	display:block;
 	height:25px;
+	position:relative;
+	margin:0;
+	padding:0;
 }
 #navigation ul{
 	list-style:none;
@@ -165,14 +168,19 @@ table caption{
 }	
 #navigation ul li a {
 	display:block;
-	padding:4px 10px 3px;
+	padding-top:5px;
+	padding-left:10px;
+	padding-right:10px;
+	min-height:20px;
+	height:auto !important; 
+	height:20px;
 	letter-spacing:1px;
 	border:0;  
+	text-align:center;
 	text-decoration:none; 
 	color:#000; 
-}	
-#navigation ul li a:hover,#navigation ul li a:active, #navigation li.current_page_item a
-{
+}
+#navigation ul li a:hover,#navigation ul li a:active, #navigation li.current_page_item a{
 	filter:alpha(opacity=50);
 	-moz-opacity:0.5;
 	opacity:.50;
@@ -180,95 +188,45 @@ table caption{
 	color:#fff;
 	text-decoration:none;
 }
-#slidebar
-{ 
+#slidebar{ 
 	zoom:1;
-}
-
-/*-----------------------------------------------------------------------------------------------
-  Drop Down Menu (suckerfish)
------------------------------------------------------------------------------------------------*/
-
-#suckerfish, #suckerfish ul {
-	padding: 0;
-	margin: 0;
-	list-style: none; 
-	line-height: 1;
-}
-
-#suckerfish a {
-    display: block;
-    color: #fff;
-}
-
-#suckerfish li {
-    float: left;
-    position: relative;
-}
-
-#suckerfish li ul {
-    position: absolute;
-    left: -999em;
-    height: auto;
-}
-
-#suckerfish li ul li {
-    background: #933;
-    width: 20em;
-	filter:alpha(opacity=80);
-	-moz-opacity:0.5;
-	opacity:.80;
-	text-decoration:none;
-}
-
-#suckerfish li ul li a{
-    color: #DDD;
-}
-
-#suckerfish li ul ul {
-    margin: -3em 0 0 20em;
-}
-
-#suckerfish li ul li ul li{
-    width: auto;
-}
-
-#suckerfish li:hover ul ul, #suckerfish li:hover ul ul ul, #suckerfish li.sfhover ul ul, #suckerfish li.sfhover ul ul ul {
-    left: -999em;
-}
-
-#suckerfish li:hover ul, #suckerfish li li:hover ul, #suckerfish li li li:hover ul, #suckerfish li.sfhover ul, #suckerfish li li.sfhover ul, #suckerfish li li li.sfhover ul {
-    left: auto;
 }
 
 /*-----------------------------------------------------------------------------------------------
   Open / Close Navigation button
 -----------------------------------------------------------------------------------------------*/
-a.silderButtonNav{
+#silderButtonNav a{
 	display:block;
-	margin-top:8px;
-	padding:2px 5px 3px 5px;
+	padding:3px 5px 5px 6px;
 	font-size:.8em;
-	text-decoration:none;
 	background:#393939;
 	color:#fff;
-	border-top: 1px solid #333;
-	border-left: 1px solid #333;
-	border-right:1px solid #333;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right:1px solid #000;
 	text-decoration:none;
+	position:absolute;
+	width:80px;
+	min-height:12px;
+	height:auto !important;
+	height:12px;
+	top:25px;
+	right:5%;
+	text-align:center;
 }
-*html a.silderButtonNav {
+*html #silderButtonNav a{
 	width:80px;
 	text-decoration:none;
 }
-a.silderButtonNav:hover{
+#silderButtonNav a:hover{
 	background:#000;
 	color:#fff;
-	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
 	border-left: 1px solid #333;
 	border-right:1px solid #333;
 	text-decoration:none;
 }
+
 /*-----------------------------------------------------------------------------------------------
   Primary Items
 -----------------------------------------------------------------------------------------------*/

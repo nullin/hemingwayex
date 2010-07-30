@@ -60,29 +60,17 @@
 	
 	 <div id="navigation">
        <div class="inside">
-         <?php if ($hemingwayEx_options['drop-down'] == 1) { // If the drop-down menu option is checked ?>
-            <ul class="left" id="suckerfish">
-               <li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
-            <?php wp_list_pages('title_li=&depth=3'); ?>
-            <?php if ($hemingwayEx_options['nav_categories'] == 1) { // If the categories drop-down is enabled ?>
-               <li><a href="<?php bloginfo('siteurl'); ?>/archives">Categories</a>
-               <ul><?php wp_list_cats(); ?></ul></li>
-            <?php } ?>
-         <?php } else { // If the drop-down menu option is not checked ?>
             <ul class="left">
-               <li <?php if(is_home()) { echo 'class="current_page_item"';} ?>><a href="<?php bloginfo('siteurl'); ?>"><?php _e('Home','hemingwayex') ?></a></li>
                <?php wp_list_pages('title_li=&depth=1'); ?>
-         <?php } ?>
             </ul>
          <?php if ($hemingwayEx_options['slidebar_enabled'] == 1){ ?>
-            <div class="right" id="silderButton">
-               <a class="silderButtonNav" id="openSlidebar" href="#" onclick="openNav();return false;" title="<?php _e('Open Navigation','hemingwayex') ?>"><?php _e('Open Navigation','hemingwayex') ?></a>
-               <a class="silderButtonNav" id="closeSlidebar" href="#" onclick="closeNav();return false;" title="<?php _e('Close Navigation','hemingwayex') ?>" style="display:none;"><?php _e('Close navigation','hemingwayex') ?></a>
+               <div id="silderButtonNav">
+               <a id="openSlidebar" href="#" onclick="openNav();return false;" title="<?php _e('Open Navigation','hemingwayex') ?>"><?php _e('Open Navigation','hemingwayex') ?></a>
+               <a id="closeSlidebar" href="#" onclick="closeNav();return false;" title="<?php _e('Close Navigation','hemingwayex') ?>" style="display:none;"><?php _e('Close Navigation','hemingwayex') ?></a>
             </div>
          <?php } ?>
       </div>
    </div>
 	<!-- [END] #menu -->
-	
-	<div class="clear" >&nbsp;</div>
+
 	<?php include (TEMPLATEPATH . '/dynamic_slidebar.php'); ?>
