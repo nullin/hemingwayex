@@ -1,9 +1,9 @@
 /*  
 Theme Name: HemingwayEx
 Theme URI: http://nalinmakar.com/hemingwayex
-Description: HemingwayEx is a simple weblog theme by <a href="http://nalinmakar.com">NULL.in</a> and further modified by <a href="http://dbzer0.com">Db0</a> created by modifing the very popular <a href="http://warpspire.com/hemingway">Hemingway</a>.  If you'd like to learn more about HemingwayEx, <a href="http://nalinmakar.com/hemingwayex">head on over to my site</a>.
-Version: 1.7.1
-Author: NULL.in
+Description: HemingwayEx is a simple weblog theme by <a href="http://nalinmakar.com">Nalin Makar</a> and further modified by <a href="http://dbzer0.com">Db0</a> created by modifing the very popular <a href="http://warpspire.com/hemingway">Hemingway</a>.  If you'd like to learn more about HemingwayEx, <a href="http://nalinmakar.com/hemingwayex">head on over to my site</a>.
+Version: 1.8
+Author: Nalin Makar
 Author URI: http://nalinmakar.com
 */
 
@@ -197,7 +197,7 @@ table caption{
 -----------------------------------------------------------------------------------------------*/
 #silderButtonNav a{
 	display:block;
-	padding:3px 5px 5px 6px;
+	padding:3px;
 	font-size:.8em;
 	background:#393939;
 	color:#fff;
@@ -207,9 +207,9 @@ table caption{
 	text-decoration:none;
 	position:absolute;
 	width:80px;
-	min-height:12px;
+	min-height:10px;
 	height:auto !important;
-	height:12px;
+	height:10px;
 	top:25px;
 	right:5%;
 	text-align:center;
@@ -370,9 +370,10 @@ table caption{
 	padding:0.2em 0.2em 0.2em 1em;
 	margin:1em 5% 0 5%;
 }
-#paging{
+#paging {
 	text-align:right;
 	margin-top:0.5em;
+	margin-bottom:1em;
 }
 #paging a {
 	border:1px solid #333;

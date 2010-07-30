@@ -10,6 +10,7 @@ Release Notes
 * Change: Moved open/close navigation button below the nav bar and made it's position absolute
 * Removed: Suckerfish plugin support
 * New: Enable use of WP 3.0 menus
+* New: Enable single column for posts on Homepage
 
 ### v1.7.1 (7/25/2010)
 

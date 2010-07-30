@@ -37,7 +37,7 @@ class HemingwayEx
 			}
 			
 			// If they've manually put in an excerpt, and allowed it to be used let it go!
-			if ($post->post_excerpt	&& $hemingwayEx_options['use_WP_excerpt']!=0) { 
+			if ($post->post_excerpt	&& $hemingwayEx_options['use_WP_excerpt'] != 0) { 
 				return $post->post_excerpt;
 			}
 			// Check to see if it's a password protected post
@@ -83,8 +83,7 @@ $default_options = Array(
 	'paging_enabled' => 0,
 	'use_WP_excerpt' => 1,
 	'reddit_button'=> 0,
-	'drop-down'=> 0,
-	'nav_categories'=> 0,
+	'homepage_layout'=> 0,
 );
 if (!get_option('hem_version') || get_option('hem_version') < $hemingwayEx->version){	
 	// HemingwayEx isn't installed, so we'll need to add options
@@ -148,8 +147,7 @@ function menu() {
 		$hemingwayEx_options['paging_enabled'] = $_POST['paging_enabled'];
 		$hemingwayEx_options['use_WP_excerpt'] = $_POST['use_WP_excerpt'];
 		$hemingwayEx_options['reddit_button'] = $_POST['reddit_button'];
-		$hemingwayEx_options['drop-down'] = $_POST['drop-down'];
-		$hemingwayEx_options['nav_categories'] = $_POST['nav_categories'];		
+		$hemingwayEx_options['homepage_layout'] = $_POST['homepage_layout'];
 		update_option('hem_options', $hemingwayEx_options);
 		
 		wp_cache_flush();
@@ -195,9 +193,16 @@ function menu() {
 	</select>
 	<input type="submit" value="Save" />
 </form>
-<h3><?php _e('Miscellaneous Options','hemingwayex') ?></h3>
+<h3><?php _e('Layout Options','hemingwayex') ?></h3>
 <form name="dofollow" action="" method="post">
 <input type="hidden" name="misc_options" value="1" />
+<h4><?php _e('Homepage Layout','hemingwayex') ?></h4>
+<p>
+	<label><input type="radio" value="0" name="homepage_layout" <?php if ($hemingwayEx_options['homepage_layout'] == 0) echo "checked=\"checked\""; ?> /> <?php _e('Two columns, one post each','hemingwayex') ?></label>
+</p>
+<p>
+	<label><input type="radio" value="1" name="homepage_layout" <?php if ($hemingwayEx_options['homepage_layout'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Single column','hemingwayex') ?></label>
+</p>
 <h4><?php _e('Sidebars','hemingwayex') ?></h4>
 <p>
 	<label><input type="checkbox" value="1" name="slidebar_enabled" <?php if ($hemingwayEx_options['slidebar_enabled'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Enable Slidebar','hemingwayex') ?></label>
@@ -220,13 +225,6 @@ function menu() {
 </p>
 <p>
 	<label><input type="checkbox" value="1" name="page_comments" <?php if ($hemingwayEx_options['page_comments'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Display comments section on static pages','hemingwayex') ?></label>
-</p>
-<h4><?php _e('Navigation Bar','hemingwayex') ?></h4>
-<p>
-	<label><input type="checkbox" value="1" name="drop-down" <?php if ($hemingwayEx_options['drop-down'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Do you wish to have a drop-down menu on your navbar (useful if you have a lot of subpages)','hemingwayex') ?></label>
-</p>
-<p>
-	<label><input type="checkbox" value="1" name="nav_categories" <?php if ($hemingwayEx_options['nav_categories'] == 1) echo "checked=\"checked\""; ?> /> <?php _e('Should your categories be visible on the navbar as a drop-down list (only active if the drop-down option is active)','hemingwayex') ?></label>
 </p>
 <h4><?php _e('Misc Options','hemingwayex') ?></h4>
 <p>
