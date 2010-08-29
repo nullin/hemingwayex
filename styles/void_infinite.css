@@ -49,20 +49,21 @@ blockquote{
 	color: #0c0c0c !important;
 	background: #AAF !important;
 }
-
 li.emo_widget_title {
     color: #2288FF;
 }
-
-#suckerfish li ul li {
-    background: #339;
-}
-
 .seriesmeta {
 	background-color: #2f4150;
 }
-
 .seriesbox {
 	border: 1px dotted #1E3A96;
 	border-bottom: 2px solid #1E3A96;
+}
+
+/*suckerfish menu styling for WP3.0 Menus*/
+.sf-menu li li, .sf-menu li li li {
+	background: #2955CC;
+}
+.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	color: #FFF;
 }

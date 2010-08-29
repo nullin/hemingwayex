@@ -102,8 +102,30 @@ if (!get_option('hem_version') || get_option('hem_version') < $hemingwayEx->vers
 	wp_cache_flush(); // I was having caching issues
 }
 
+function hemingwayEx_addmenus() {
+	register_nav_menus(
+		array(
+			'main_nav' => __('HemingwayEx Main Menu'),
+		)
+	);
+}
+ 
+function hemingwayEx_nav() {
+   if (function_exists('wp_nav_menu'))
+      wp_nav_menu('menu=main_nav&container_class=left&menu_class=sf-menu&fallback_cb=hemingwayEx_nav_fallback');
+   else
+      hemingwayEx_nav_fallback();
+}
+ 
+function hemingwayEx_nav_fallback() {
+    echo '<ul class="sf-menu">';
+    wp_list_pages('title_li=');
+    echo '</ul>';
+}
+
 // Stuff
-add_action ('admin_menu', 'hemingway_menu');
+add_action('init', 'hemingwayEx_addmenus');
+add_action ('admin_menu', 'hemingwayEx_options_menu');
 $hem_loc = '../themes/' . basename(dirname($file));
 $hemingwayEx_options = get_option('hem_options');
 $hemingwayEx->get_style();
@@ -113,7 +135,7 @@ function hemingwayEx_message($message) {
 	echo "<div id=\"message\" class=\"updated fade\"><p>$message</p></div>\n";
 }
 
-function hemingway_menu() {
+function hemingwayEx_options_menu() {
 	add_submenu_page('themes.php', 'HemingwayEx Options', 'HemingwayEx Options', 5, $hem_loc . 'functions.php', 'menu');
 }
 

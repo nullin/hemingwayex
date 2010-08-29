@@ -201,26 +201,30 @@ ul.sidebar li.widget ul a:hover{ color:#2955CC; }
 #searchform #searchsubmit{
 	background:#C2C2C2;
 }
-
 .formhead {
 	color:#2955CC;
 }
-
-#suckerfish li ul li {
-    background: #339;
-}
-
 .seriesmeta {
 	background-color: #2f4150;
 }
-
 .seriesbox {
 	background: #DDD;
 	border: 1px dotted #1E3A96;
 	border-bottom: 2px solid #1E3A96;
 	color: #000;	
 }
-
 .serieslist-content {
 	color: #333;
+}
+
+/*suckerfish menu styling for WP3.0 Menus*/
+.sf-menu li ul li a {
+	border-right:1px solid #E3E3E3;
+	border-bottom:1px solid #E3E3E3;
+}
+.sf-menu li li, .sf-menu li li li {
+	background: #2955CC;
+}
+.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	color: #FFF;
 }

@@ -161,22 +161,23 @@ ul.dates a:hover, ul.dates a:hover .date, ul.counts a:hover, ul.counts a:hover .
 	background:#666;
 	color:#fff;
 }
-
-#suckerfish li ul li {
-    background: #333;
-}
-
 .seriesmeta {
 	background-color: #838383;
 }
-
 .seriesbox {
 	background: #DDD;
 	border: 1px dotted #000;
 	border-bottom: 2px solid #000;
 	color: #000;
 }
-
 .serieslist-content {
 	color: #555;
+}
+/*suckerfish menu styling for WP3.0 Menus*/
+.sf-menu li ul li a {
+	border-right:1px solid #FFF;
+	border-bottom:1px solid #FFF;
+}
+.sf-menu li li, .sf-menu li li li {
+	background: #E5E5E5;
 }

@@ -149,45 +149,6 @@ table caption{
 	margin:0;
 	padding:0;
 }
-#navigation ul{
-	list-style:none;
-	margin:0;	
-	padding-left:30px;
-	text-transform:uppercase;
-	font-size:1em;
-	font-weight:normal;		
-	font-family: "Lucida Sans Unicode", Georgia, Tahoma, Arial, Serif;
-}
-#navigation ul li {
-	float:left;
-	margin:0;
-	padding:0;
-	list-style:none;  
-	white-space:nowrap;	
-	font-weight:bold;
-}	
-#navigation ul li a {
-	display:block;
-	padding-top:5px;
-	padding-left:10px;
-	padding-right:10px;
-	min-height:20px;
-	height:auto !important; 
-	height:20px;
-	letter-spacing:1px;
-	border:0;  
-	text-align:center;
-	text-decoration:none; 
-	color:#000; 
-}
-#navigation ul li a:hover,#navigation ul li a:active, #navigation li.current_page_item a{
-	filter:alpha(opacity=50);
-	-moz-opacity:0.5;
-	opacity:.50;
-	background-color:black;
-	color:#fff;
-	text-decoration:none;
-}
 #slidebar{ 
 	zoom:1;
 }

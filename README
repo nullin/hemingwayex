@@ -6,11 +6,13 @@ HemingwayEx, a simple extension of Hemingway theme for Wordpress blogs. I have t
 Release Notes
 -------
 
-### Upcoming
+### v1.8 (8/29/2010)
+* New: Enable optional use of WP 3.0 Menus
+* New: Using Superfish JQuery Plugin for menus (http://users.tpg.com.au/j_birch/plugins/superfish/)
+* New: Enable single column for posts on Homepage
+* Fixed: Other custom styles to handle WP 3.0 Menus
 * Change: Moved open/close navigation button below the nav bar and made it's position absolute
 * Removed: Suckerfish plugin support
-* New: Enable use of WP 3.0 menus
-* New: Enable single column for posts on Homepage
 
 ### v1.7.1 (7/25/2010)
 

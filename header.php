@@ -3,35 +3,36 @@
 
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 
 <title><?php wp_title("&bull;",true,"right"); ?> <?php if ( is_single() ) { ?> Blog Archive &bull; <?php } ?><?php bloginfo('name'); ?></title>
 
-<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
-
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/admin/css/superfish.css" type="text/css" media="screen" />
 <?php
 	global $hemingwayEx, $hemingwayEx_options;
 	if ($hemingwayEx->style != 'none') :
 ?>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/styles/<?php echo $hemingwayEx->style ?>" type="text/css" media="screen" />
-
 <?php endif; ?>
-
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<?php $hem_js_loc = get_option('siteurl') . '/wp-content/themes/' . get_template() . '/admin/js/';
-		$wp_js_loc  = get_option('siteurl') . '/wp-includes/js/scriptaculous/';?>
-
-<!--TODO: remove one of the prototype.js locations-->
-<script type="text/javascript" src="<?php echo $wp_js_loc; ?>prototype.js"></script>
-<script type="text/javascript" src="<?php echo $wp_js_loc; ?>../prototype.js"></script>
-<script type="text/javascript" src="<?php echo $wp_js_loc; ?>effects.js"></script>
-<script type="text/javascript" src="<?php echo $hem_js_loc; ?>slide.js"></script>
-<script type="text/javascript" src="<?php echo $hem_js_loc; ?>textsize.js"></script>
+<?php wp_enqueue_script('prototype'); ?>
+<?php wp_enqueue_script('effects', get_option('siteurl') . '/wp-includes/js/scriptaculous/' . 'effects.js'); ?>
+<?php wp_enqueue_script('slider', get_bloginfo('template_directory') . '/admin/js/slide.js'); ?>
+<?php wp_enqueue_script('textsize', get_bloginfo('template_directory') . '/admin/js/textsize.js'); ?>
+<?php wp_enqueue_script('superfish', get_bloginfo('template_directory') . '/admin/js/superfish.js', array('jquery')); ?>
 
 <?php wp_head(); ?>
+
+<script language="javascript" type="text/javascript"> 
+   $j = jQuery.noConflict();
+   $j(document).ready(function() { 
+      $j('ul.sf-menu').superfish(); 
+   });
+</script>
+
 </head>
 <body>
 	<div id="header">
@@ -58,13 +59,11 @@
 	</div>
 	<!-- [END] #header -->
 	
-	 <div id="navigation">
-       <div class="inside">
-            <ul class="left">
-               <?php wp_list_pages('title_li=&depth=1'); ?>
-            </ul>
+	<div id="navigation">
+      <div class="inside">
+         <?php hemingwayEx_nav() ?>
          <?php if ($hemingwayEx_options['slidebar_enabled'] == 1){ ?>
-               <div id="silderButtonNav">
+            <div id="silderButtonNav">
                <a id="openSlidebar" href="#" onclick="openNav();return false;" title="<?php _e('Open Navigation','hemingwayex') ?>"><?php _e('Open Navigation','hemingwayex') ?></a>
                <a id="closeSlidebar" href="#" onclick="closeNav();return false;" title="<?php _e('Close Navigation','hemingwayex') ?>" style="display:none;"><?php _e('Close Navigation','hemingwayex') ?></a>
             </div>
