@@ -18,9 +18,6 @@
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<?php wp_enqueue_script('prototype'); ?>
-<?php wp_enqueue_script('effects', get_option('siteurl') . '/wp-includes/js/scriptaculous/' . 'effects.js'); ?>
-<?php wp_enqueue_script('slider', get_bloginfo('template_directory') . '/admin/js/slide.js'); ?>
 <?php wp_enqueue_script('textsize', get_bloginfo('template_directory') . '/admin/js/textsize.js'); ?>
 <?php wp_enqueue_script('superfish', get_bloginfo('template_directory') . '/admin/js/superfish.js', array('jquery')); ?>
 
@@ -30,6 +27,16 @@
    $j = jQuery.noConflict();
    $j(document).ready(function() { 
       $j('ul.sf-menu').superfish(); 
+      $j("#closeSlidebar").click(function() {
+	    $j("#slidebar").slideToggle("slow");
+	    $j("#closeSlidebar").fadeOut("slow");
+	    $j("#openSlidebar").fadeIn("slow");
+	  });
+	  $j("#openSlidebar").click(function() {
+	    $j("#slidebar").slideToggle("slow");
+	    $j("#closeSlidebar").fadeIn("slow");
+	    $j("#openSlidebar").fadeOut("slow");
+	  });
    });
 </script>
 
@@ -64,8 +71,8 @@
          <?php hemingwayEx_nav() ?>
          <?php if ($hemingwayEx_options['slidebar_enabled'] == 1){ ?>
             <div id="silderButtonNav">
-               <a id="openSlidebar" href="#" onclick="openNav();return false;" title="<?php _e('Open Navigation','hemingwayex') ?>"><?php _e('Open Navigation','hemingwayex') ?></a>
-               <a id="closeSlidebar" href="#" onclick="closeNav();return false;" title="<?php _e('Close Navigation','hemingwayex') ?>" style="display:none;"><?php _e('Close Navigation','hemingwayex') ?></a>
+               <a id="openSlidebar" href="#" title="<?php _e('Open Navigation','hemingwayex') ?>"><?php _e('Open Navigation','hemingwayex') ?></a>
+               <a id="closeSlidebar" href="#" title="<?php _e('Close Navigation','hemingwayex') ?>" style="display:none;"><?php _e('Close Navigation','hemingwayex') ?></a>
             </div>
          <?php } ?>
       </div>

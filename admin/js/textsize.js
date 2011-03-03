@@ -22,7 +22,6 @@ function setFontSize(fontSize){
 	document.body.style.fontSize = fontSize + '%';
 };
 
-
 function createCookie(name,value,days) {
   if (days) {
     var date = new Date();
