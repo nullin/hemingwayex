@@ -43,9 +43,7 @@ function readCookie(name) {
   return null;
 };
 
-window.onload = setUserOptions;
-
-function setUserOptions(){
+function setFontResizerUserOpts(){
 	if(!prefsLoaded){
 		cookie = readCookie("fontSize");
 		currentFontSize = cookie ? cookie : defaultFontSize;
@@ -54,9 +52,7 @@ function setUserOptions(){
 	}
 }
 
-window.onunload = saveSettings;
-
-function saveSettings()
+function saveFontResizerSettings()
 {
   createCookie("fontSize", currentFontSize, 365);
 }

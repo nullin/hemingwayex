@@ -20,25 +20,8 @@
 
 <?php wp_enqueue_script('textsize', get_bloginfo('template_directory') . '/admin/js/textsize.js'); ?>
 <?php wp_enqueue_script('superfish', get_bloginfo('template_directory') . '/admin/js/superfish.js', array('jquery')); ?>
-
+<?php wp_enqueue_script('initialize', get_bloginfo('template_directory') . '/admin/js/init.js'); ?>
 <?php wp_head(); ?>
-
-<script language="javascript" type="text/javascript"> 
-   $j = jQuery.noConflict();
-   $j(document).ready(function() { 
-      $j('ul.sf-menu').superfish(); 
-      $j("#closeSlidebar").click(function() {
-	    $j("#slidebar").slideToggle("slow");
-	    $j("#closeSlidebar").fadeOut("slow");
-	    $j("#openSlidebar").fadeIn("slow");
-	  });
-	  $j("#openSlidebar").click(function() {
-	    $j("#slidebar").slideToggle("slow");
-	    $j("#closeSlidebar").fadeIn("slow");
-	    $j("#openSlidebar").fadeOut("slow");
-	  });
-   });
-</script>
 
 </head>
 <body>
@@ -54,9 +37,9 @@
 				<?php if ($hemingwayEx_options['font_resizer'] == 1) { ?>
 					<div id="textsize">
 						<?php _e('Font:','hemingwayex') ?> 
-							<a href="#" title="<?php _e('Increase size','hemingwayex') ?>" onclick="changeFontSize(1);return false;">A+</a>&nbsp;&nbsp;
-							<a href="#" title="<?php _e('Decrease size','hemingwayex') ?>" onclick="changeFontSize(-1);return false;">A-</a>&nbsp;&nbsp;
-							<a href="#" title="<?php _e('Revert styles to default','hemingwayex') ?>" onclick="resetFontSize(); return false;">A</a>
+							<a id="upSize" href="#" title="<?php _e('Increase size','hemingwayex') ?>">A+</a>&nbsp;&nbsp;
+							<a id="downSize" href="#" title="<?php _e('Decrease size','hemingwayex') ?>">A-</a>&nbsp;&nbsp;
+							<a id="resetSize" href="#" title="<?php _e('Revert styles to default','hemingwayex') ?>">A</a>
 					</div>
 				<?php } ?>
 			</div>
