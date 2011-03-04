@@ -6,6 +6,9 @@ HemingwayEx, a simple extension of Hemingway theme for Wordpress blogs. I have t
 Release Notes
 -------
 
+### v1.9 (3/3/2011)
+* Fixed: Issues with using Prototype. Replaced code to use JQuery
+
 ### v1.8 (8/29/2010)
 * New: Enable optional use of WP 3.0 Menus
 * New: Using Superfish JQuery Plugin for menus (http://users.tpg.com.au/j_birch/plugins/superfish/)
