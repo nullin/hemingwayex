@@ -6,6 +6,10 @@ HemingwayEx, a simple extension of Hemingway theme for Wordpress blogs. I have t
 Release Notes
 -------
 
+### v1.9.1 (7/4/2011)
+* Updated the link to Author's website
+* Fixed and updated the version number in functions.php
+
 ### v1.9 (3/3/2011)
 * Fixed: Issues with using Prototype. Replaced code to use JQuery
 
