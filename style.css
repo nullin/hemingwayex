@@ -364,6 +364,14 @@ li.emo_widget_title {
     border-top: none !important;
 }
 
+
+/* Style for zemanta, to hide the pixie img if it exists (otherwise it gets a border and padding) */
+.zemanta-pixie img{
+        padding: 0px !important;
+        border: none !important;
+        background: none !important;
+}
+
 /*-----------------------------------------------------------------------------------------------
 	Caption and WP 2.6 Image Styles
 -----------------------------------------------------------------------------------------------*/
